@@ -112,14 +112,34 @@ function cargarWeb(){
 function cargarResultado(){
     var urlComp, can, un;
 
-    urlComp = window.location.href.split(/) [5];
+    urlComp = window.location.href.split("/")[5];
+    can = urlComp.split("#")[1];
+    un = urlComp.split("#")[2];
 
-    can = urlComp.split(separator:"#") [1];
-    un = urlComp.split( separator:"#") [2];
+    document.getElementById('dist').value = can + " " + un;
 
-    document.getElementById(elementid: "dist").value = can + " " + un;
 }
 
+function guardarLocalStorage() {
+    let distancia, unidad;
+
+    distancia = document.getElementById('distancia').value;
+    unidad = document.getElementsByName('unidades')[0].value;
+
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadesLS", unidad);
+
+    window.open('2_web.html');
+}
+
+function cargarLocalStorage() {
+    let cant, un;
+    cant = localStorage.getItem("distanciaLS");
+    un = localStorage.getItem("unidadesLS");
+
+    document.getElementById("dist").value = cant + " " + un;
+
+}
 
 function dibujar_circulo_cuadrado(){
     let canvas = document.getElementById("myCanvas");
