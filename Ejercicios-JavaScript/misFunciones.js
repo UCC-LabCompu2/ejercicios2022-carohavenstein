@@ -188,8 +188,6 @@ function borrarCanvas() {
     canvas.width = canvas.width;
 }
 
-
-
 function dibujarCuadriculado(){
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
@@ -214,15 +212,13 @@ function dibujarCuadriculado(){
 }
 
 x = 0;
-dx = 5;
+dx = 2;
 function animarAuto(){
-    let canvas = document.getElementById("myCanvas");
-    let ctx = canvas.getContext("2d");
-    let img;
-
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
     canvas.width = canvas.width;
 
-    img = new Image();
+    var img = new Image();
     img.src = "images/auto.png";
 
     img.onload = function(){
@@ -232,5 +228,5 @@ function animarAuto(){
     if(x > canvas.width){
         x = 0;
     }
-    x = x+dx
+    x = x+dx;
 }
