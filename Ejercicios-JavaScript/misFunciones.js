@@ -159,31 +159,36 @@ function dibujarCirculoCuadrado() {
     ctx.fill();
 }
 
-function borrarCanvas(){
-    let canvas = document.getElementById("lienzoDibujo");
+
+var bandera;
+function dibujar(event) {
+
+    var canvas = document.getElementById("canvasDibujar");
+    var ctx = canvas.getContext("2d");
+
+    var posX = event.clientX;
+    var posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function (){bandera=true};
+    canvas.onmouseup = function (){bandera=false};
+
+    if(bandera){
+        ctx.fillRect(posX, posY, 5, 5);
+        ctx.fill();
+    }
+
+}
+
+function borrarCanvas() {
+
+    let canvas = document.getElementById("canvasDibujar");
     let ctx = canvas.getContext("2d");
 
     canvas.width = canvas.width;
 }
 
-function cargarListener(){
-    document.getElementById("lienzoDibujo").addEventListener("mousemove", function(event){
-        let canvas = document.getElementById("lienzoDibujo");
-        let ctx = canvas.getContext("2d");
 
-        let mouseX = event.clientX;
-        let mouseY = event.clientY;
-
-        console.log(mouseX, mouseY);
-
-        canvas.onmousedown = function(){bandera = true};
-        canvas.onmouseup = function(){bandera = false};
-        if(bandera){
-            ctx.fillRect(mouseX-10, mouseY-10, 5, 5);
-        }
-
-    });
-}
 
 function dibujarCuadriculado(){
     let canvas = document.getElementById("myCanvas");
