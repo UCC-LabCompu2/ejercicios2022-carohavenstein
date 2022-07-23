@@ -141,22 +141,22 @@ function cargarLocalStorage() {
 
 }
 
-function dibujar_circulo_cuadrado(){
+function dibujarCirculoCuadrado() {
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
 
-    let yMax = canvas.height;
     let xMax = canvas.width;
-    let margen = 10;
-    let tamCuadrado = 50;
+    let yMax = canvas.height;
+    let tamanio = 80;
+    let margen = 20;
 
-    ctx.fillRect(0+margen, yMax-50-margen, tamCuadrado, tamCuadrado);
+    ctx.fillStyle = "#0d19e1";
+    ctx.fillRect(0+margen, yMax-tamanio-margen, tamanio, tamanio);
 
-    ctx.arc(xMax/2, yMax/2,100, 0, 2*Math.PI);
+    ctx.arc(xMax/2, yMax/2, 75, 0, 2*Math.PI);
     ctx.stroke();
-    ctx.fillStyle = "#00ff00";
+    ctx.fillStyle = "#ef5603";
     ctx.fill();
-
 }
 
 function borrarCanvas(){
